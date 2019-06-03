@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 17:45:51 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/03 20:14:39 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef enum				e_bool
 typedef enum				e_error
 {
 	ok,
-	falloc
+	falloc,
+	usage
 }							t_error;
 
 typedef struct				s_img
@@ -57,6 +58,8 @@ typedef struct				s_canvas
 typedef struct				s_model
 {
 	void					(*f)();
+	t_fractals				index;
+	char					name[15];
 }							t_model;
 
 typedef struct				e_fra
@@ -79,6 +82,16 @@ typedef struct				s_man
 **	returns ok if everything went good, else a revelant error type.
 */
 t_error						init_fractol(t_fra *fra);
+
+/*
+**	Fill the function pointers array.
+*/
+void						init_functions(t_fra *fra);
+
+/*
+**	Parse arguments to select starting fractal, or print usage.
+*/
+t_error						parse_arguments(t_fra *fra, int ac, char **av);
 
 /*
 **	Inputs management.

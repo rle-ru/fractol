@@ -6,19 +6,17 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 06:14:15 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 08:00:57 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/03 20:18:12 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "mlx.h"
 #include "stdlib.h"
-#include "libft.h"
+// #include "libft.h"
 
 t_error			init_fractol(t_fra *fra)
 {
-	ft_bzero(fra, sizeof(t_fra));
-	fra->fractal[0].f = &mandelbrot;
 	if ((fra->canvas.mlx_ptr = mlx_init()) == NULL)
 		return (falloc);
 	if ((fra->canvas.window = mlx_new_window(

@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 06:18:10 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 07:45:19 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/03 20:08:13 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ static void	print_errors(t_error err)
 {
 	if (err == ok)
 		return ;
-	if (err == falloc)
+	else if (err == usage)
+		; // Add usage
+	else if (err == falloc)
 		ft_putstr_fd("A malloc returned NULL\n", STDERR_FILENO);
 }
 
