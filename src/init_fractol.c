@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_fractol.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 08:11:48 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 06:19:04 by rle-ru           ###   ########.fr       */
+/*   Created: 2019/06/03 06:14:15 by rle-ru            #+#    #+#             */
+/*   Updated: 2019/06/03 06:15:38 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"	//
-#include "fractol.h"//
+#include "fractol.h"
+#include "mlx.h"
 
-int		main(int ac, char **av)
+t_error			init_fractol(t_fra *fra)
 {
-	t_error		ret;
-	t_fra		fra;
-
-	if ((ret = init_fractol(&fra)) != ok)
-		leave(ret);
-	return (0);
+	
 }
