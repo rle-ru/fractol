@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook.c                                         :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/03 07:30:53 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 07:55:44 by rle-ru           ###   ########.fr       */
+/*   Created: 2019/06/03 08:00:19 by rle-ru            #+#    #+#             */
+/*   Updated: 2019/06/03 08:22:20 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "keys.h"
 
-int		key_hook(int key, t_fra *fra)
+static void	mandelbrot_calc(t_fra *fra, t_man *man)
 {
-	if (key == K_ESC)
-		leave(ok, fra);
-	if (key == K_RIGHT || key == K_LEFT) // Change the key
+	
+}
+
+void		mandelbrot(t_fra *fra)
+{
+	t_man	man;
+	(void)fra;//
+	man.y = 0;
+	while (man.y < W_HEIGHT)
 	{
-		fra->curr_fractal += key == K_RIGHT ? 1 : -1; // Change the key
-		if (fra->curr_fractal >= MAX_FRACTALS)
-			fra->curr_fractal = 0;
-		if (fra->curr_fractal < 0)
-			fra->curr_fractal = MAX_FRACTALS - 1;
+		man.x = 0;
+		while (man.x < W_WIDTH)
+		{
+			mandelbrot_calc(fra, &man);
+			++man.x;
+		}
+		++man.y;
 	}
-	return (0);
 }

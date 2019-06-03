@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 07:33:21 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/03 08:19:54 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRACTOL_H
 # define W_WIDTH 500
 # define W_HEIGHT 500
+# define MAX_FRACTALS 1
 
 typedef enum		e_bool
 {
@@ -44,10 +45,23 @@ typedef struct		s_canvas
 
 }					t_canvas;
 
+typedef struct		s_model
+{
+	void			(*f)();
+}					t_model;
+
 typedef struct		e_fra
 {
 	t_canvas		canvas;
+	t_model			fractal[MAX_FRACTALS];
+	int				curr_fractal;
 }					t_fra;
+
+typedef struct		s_man
+{
+	int				x;
+	int				y;
+}					t_man;
 
 /*
 **	Allocates memory according to needs, starts the MLX loop.
@@ -70,5 +84,10 @@ int					draw(t_fra *fra);
 **	error messages if needed.
 */
 int					leave(t_error error, t_fra *fra);
+
+/*
+**	The mandelbrot model.
+*/
+void				mandelbrot(t_fra *fra);
 
 #endif
