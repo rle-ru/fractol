@@ -6,12 +6,14 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 06:23:10 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/03 07:33:21 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
+# define W_WIDTH 500
+# define W_HEIGHT 500
 
 typedef enum		e_bool
 {
@@ -25,8 +27,20 @@ typedef enum		e_error
 	falloc
 }					t_error;
 
-typedef struct		e_canvas
+typedef struct		s_img
 {
+	void			*img_ptr;
+	int				*img;
+	int				bpp;
+	int				stride;
+	int				endian;
+}					t_img;
+
+typedef struct		s_canvas
+{
+	void			*mlx_ptr;
+	void			*window;
+	t_img			img;
 
 }					t_canvas;
 
@@ -42,9 +56,19 @@ typedef struct		e_fra
 t_error				init_fractol(t_fra *fra);
 
 /*
+**	Inputs management.
+*/
+int					key_hook(int key, t_fra *fra);
+
+/*
+**	The main drawing function. It is called on every mlx_loop.
+*/
+int					draw(t_fra *fra);
+
+/*
 **	Exits the program properly, free any remaining pointer, and printing
 **	error messages if needed.
 */
-void				leave(t_error error);
+int					leave(t_error error, t_fra *fra);
 
 #endif

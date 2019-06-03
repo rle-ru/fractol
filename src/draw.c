@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 08:11:48 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 07:42:56 by rle-ru           ###   ########.fr       */
+/*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
+/*   Updated: 2019/06/03 07:34:24 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"//
+#include "mlx.h"
 #include "fractol.h"
+#include "libft.h"
 
-int		main(void)
+int			draw(t_fra *fra)
 {
-	t_error		ret;
-	t_fra		fra;
-
-	if ((ret = init_fractol(&fra)) != ok)
-		leave(ret, &fra);
+	ft_bzero(fra->canvas.img.img, sizeof(int) * W_WIDTH * W_HEIGHT);
+	mlx_put_image_to_window(fra->canvas.mlx_ptr, fra->canvas.window,
+		fra->canvas.img.img_ptr, 0, 0);
 	return (0);
 }

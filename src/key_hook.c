@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 08:11:48 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 07:42:56 by rle-ru           ###   ########.fr       */
+/*   Created: 2019/06/03 07:30:53 by rle-ru            #+#    #+#             */
+/*   Updated: 2019/06/03 07:38:27 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"//
 #include "fractol.h"
+#include "keys.h"
 
-int		main(void)
+int		key_hook(int key, t_fra *fra)
 {
-	t_error		ret;
-	t_fra		fra;
-
-	if ((ret = init_fractol(&fra)) != ok)
-		leave(ret, &fra);
+	if (key == K_ESC)
+		leave(ok, fra);
 	return (0);
 }
