@@ -6,13 +6,14 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 06:14:15 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 17:11:07 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 20:15:17 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "mlx.h"
 #include "stdlib.h"
+#include <complex.h>//
 
 t_error			init_fractol(t_fra *fra)
 {
@@ -28,6 +29,7 @@ t_error			init_fractol(t_fra *fra)
 					fra->canvas.img.img_ptr, &fra->canvas.img.bpp,
 					&fra->canvas.img.stride, &fra->canvas.img.endian)) == NULL)
 		return(falloc);
+	fra->data.julia = 0.274 - I * 0.008;
 	fra->data.zoom = 0.01;
 	fra->data.max_iter = 100;
 	mlx_hook(fra->canvas.window, 2, 1, key_hook, fra);

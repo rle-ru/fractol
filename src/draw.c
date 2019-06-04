@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 17:46:57 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 19:55:41 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "fractol.h"
 #include "libft.h"
 #include <pthread.h>
+
+void		print_text(t_fra *fra)
+{
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, 0, 0, 0xFFFFFF, fra->fractal[fra->curr_fractal].name);
+}
 
 int			draw(t_fra *fra)
 {
@@ -37,5 +42,6 @@ int			draw(t_fra *fra)
 		pthread_join(threads[i], NULL);
 	mlx_put_image_to_window(fra->canvas.mlx_ptr, fra->canvas.window,
 		fra->canvas.img.img_ptr, 0, 0);
+	print_text(fra);
 	return (0);
 }

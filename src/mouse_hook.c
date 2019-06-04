@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 12:40:09 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 14:55:44 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 20:35:00 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "keys.h"
 #include "math.h"
 
+#include <complex.h>//
 int		mouse_hook(int key, int x, int y, t_fra *fra)
 {
 	if (key == M_SCROLL_UP)
@@ -31,6 +32,10 @@ int		mouse_hook(int key, int x, int y, t_fra *fra)
 		// fra->data.x1 += (x / fra->data.zoom + fra->data.x1) - (y / fra->data.zoom * 1.1);
 		// fra->data.y1 += (y / fra->data.zoom + fra->data.y1) - (y / fra->data.zoom * 1.1);
 		fra->data.zoom *= 1.1;
+	}
+	if (key == M_LEFT)
+	{
+		fra->data.julia = ((double)x * -0.002205) + (I * (double)y * 0.00081);
 	}
 	(void)x;//
 	(void)y;//

@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 17:06:55 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 17:51:11 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 18:50:36 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,8 @@ int                     get_color(int c1, int c2, double p)
 int			set_1(t_data *data)
 {
 	double		a;
-	// int			res;
-	// int			max;
-	// int			min;
-	// int			red;
-	// int			blue;
 
 	a = get_gradient(data->iter, 3, data->max_iter);
-	// min = 0xFF0000;
-	// max = 0x0000FF;
-	// res = ((min * a) << 16) | ((0) << 8) | ((12));
 	return (get_color(0xFFFFFF, 0x0000FF, a));
 }
 
@@ -63,5 +55,5 @@ int			set_0(t_data *data)
 	double	a;
 
 	a = 255 * data->iter / data->max_iter;
-	return ((int)a << 16 | (int)a << 8 | (int)a);
+	return ((unsigned char)a << 16 | (unsigned char)a << 8 | (unsigned char)a);
 }

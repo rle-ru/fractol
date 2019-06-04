@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 17:33:52 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 19:13:54 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 # define W_WIDTH 500
 # define W_HEIGHT 500
-# define MAX_FRACTALS 1
+# define MAX_FRACTALS 3
 # define MAX_COLORS 2
 # define MAX_THREADS 8
 # include <math.h>
@@ -26,7 +26,8 @@ typedef pthread_t			t_pthread;
 typedef enum				e_fractals
 {
 	man,
-	jul
+	jul,
+	new
 }							t_fractals;
 
 typedef enum				e_bool
@@ -83,13 +84,14 @@ typedef struct				s_data
 	int						miny;
 	int						maxy;
 	double					zoom;
+	double					julia;
 }							t_data;
 
 typedef struct				e_fra
 {
 	t_canvas				canvas;
 	t_model					fractal[MAX_FRACTALS];
-	t_fractals				curr_fractal;
+	int						curr_fractal;
 	t_cmodel				colors[MAX_COLORS];
 	int						curr_color;
 	t_data					data;
@@ -133,9 +135,19 @@ int							draw(t_fra *fra);
 int							leave(t_error error, t_fra *fra);
 
 /*
-**	The mandelbrot model.
+**	The mandelbrot set.
 */
 void						*mandelbrot(t_fra *fra);
+
+/*
+**	The Julia set.
+*/
+void						*julia(t_fra *fra);
+
+/*
+**	The newton set.
+*/
+void						*newton(t_fra *fra);
 
 /*
 **	Puts a pixel into the mlx image.
@@ -147,6 +159,6 @@ void						put_pixel(int *img, t_data *data, int color);
 */
 int							set_0(t_data *data);
 
-int			set_1(t_data *data);
+int							set_1(t_data *data);
 
 #endif
