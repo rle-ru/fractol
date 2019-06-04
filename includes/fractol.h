@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 13:10:51 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 13:20:23 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define W_WIDTH 500
 # define W_HEIGHT 500
 # define MAX_FRACTALS 1
-# define MAX_THREADS 4
+# define MAX_THREADS 8
 # include <math.h>
 # include <pthread.h>
 
@@ -69,6 +69,8 @@ typedef struct				s_data
 {
 	int						x;
 	int						y;
+	int						x1;
+	int						y1;
 	int						iter;
 	t_complex				c;
 	int						miny;

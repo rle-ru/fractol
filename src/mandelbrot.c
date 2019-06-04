@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 08:00:19 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 13:11:02 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 13:42:00 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ void		*mandelbrot(t_fra *fra)
 	int		i;
 
 	fra->data.y = fra->data.miny;
-	fra->data.iter = 100;
 	while (fra->data.y < fra->data.maxy)
 	{
 		fra->data.x = 0;
 		while (fra->data.x < W_WIDTH)
 		{
-			fra->data.c = ((fra->data.x - (double)W_WIDTH / 2.) * fra->data.zoom) + I * ((fra->data.y - (double)W_HEIGHT / 2.) * fra->data.zoom);
+			fra->data.c = ((fra->data.x1 + fra->data.x- (double)W_WIDTH / 2.) * fra->data.zoom) + I * ((fra->data.y1 + fra->data.y - (double)W_HEIGHT / 2.) * fra->data.zoom);
 			i = mandelbrot_calc(&fra->data);
 			if (i < fra->data.iter)
 				put_pixel(fra->canvas.img.img, &fra->data, 0xFF);
