@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 11:31:04 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 17:46:57 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int			draw(t_fra *fra)
 	t_fra		cpy[MAX_THREADS];
 	int			i;
 
+	if (fra->data.max_iter < 3)
+		fra->data.max_iter = 3;
 	ft_bzero(fra->canvas.img.img, sizeof(int) * W_WIDTH * W_HEIGHT);
 	i = 0;
 	while (i < MAX_THREADS)

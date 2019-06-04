@@ -1,5 +1,7 @@
 *.bin
 .vscode
+fractol
+.DS_STORE
 
 # Prerequisites
 *.d

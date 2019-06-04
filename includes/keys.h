@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:13:21 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 13:05:40 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 17:14:54 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define K_W 13
 # define K_E 14
 # define K_T 17
+# define K_CSQUARE_BRA 30
+# define K_OSQUARE_BRA 33
 # define K_I 34
 # define K_ENTER 36
 # define K_L 37

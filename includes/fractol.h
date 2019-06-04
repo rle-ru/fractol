@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 13:20:23 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 17:33:52 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define W_WIDTH 500
 # define W_HEIGHT 500
 # define MAX_FRACTALS 1
+# define MAX_COLORS 2
 # define MAX_THREADS 8
 # include <math.h>
 # include <pthread.h>
@@ -58,6 +59,11 @@ typedef struct				s_canvas
 
 }							t_canvas;
 
+typedef struct				s_cmodel
+{
+	int						(*f)();
+}							t_cmodel;
+
 typedef struct				s_model
 {
 	void					*(*f)();
@@ -72,6 +78,7 @@ typedef struct				s_data
 	int						x1;
 	int						y1;
 	int						iter;
+	int						max_iter;
 	t_complex				c;
 	int						miny;
 	int						maxy;
@@ -83,6 +90,8 @@ typedef struct				e_fra
 	t_canvas				canvas;
 	t_model					fractal[MAX_FRACTALS];
 	t_fractals				curr_fractal;
+	t_cmodel				colors[MAX_COLORS];
+	int						curr_color;
 	t_data					data;
 }							t_fra;
 
@@ -132,5 +141,12 @@ void						*mandelbrot(t_fra *fra);
 **	Puts a pixel into the mlx image.
 */
 void						put_pixel(int *img, t_data *data, int color);
+
+/*
+**	Simple color set, black and white.
+*/
+int							set_0(t_data *data);
+
+int			set_1(t_data *data);
 
 #endif
