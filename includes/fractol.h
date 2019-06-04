@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 11:25:11 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 13:10:51 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct				s_data
 	t_complex				c;
 	int						miny;
 	int						maxy;
+	double					zoom;
 }							t_data;
 
 typedef struct				e_fra
@@ -100,9 +101,14 @@ void						init_functions(t_fra *fra);
 t_error						parse_arguments(t_fra *fra, int ac, char **av);
 
 /*
-**	Inputs management.
+**	Keyboard inputs managment.
 */
 int							key_hook(int key, t_fra *fra);
+
+/*
+**	Mouse inputs managment.
+*/
+int							mouse_hook(int key, int x, int y, t_fra *fra);
 
 /*
 **	The main drawing function. It is called on every mlx_loop.

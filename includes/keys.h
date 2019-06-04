@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:13:21 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/02 00:00:12 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 13:05:40 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # define K_A 0
 # define K_S 1
+# define M_LEFT 1
+# define M_RIGHT 2
+# define M_SCROLL_UP 4
+# define M_SCROLL_DOWN 5
 # define K_D 2
 # define K_G 5
 # define K_C 8
