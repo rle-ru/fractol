@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 11:06:33 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 11:25:11 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct				s_canvas
 
 typedef struct				s_model
 {
-	void					(*f)();
+	void					*(*f)();
 	t_fractals				index;
 	char					name[15];
 }							t_model;
@@ -71,6 +71,8 @@ typedef struct				s_data
 	int						y;
 	int						iter;
 	t_complex				c;
+	int						miny;
+	int						maxy;
 }							t_data;
 
 typedef struct				e_fra
@@ -78,6 +80,7 @@ typedef struct				e_fra
 	t_canvas				canvas;
 	t_model					fractal[MAX_FRACTALS];
 	t_fractals				curr_fractal;
+	t_data					data;
 }							t_fra;
 
 /*
@@ -115,7 +118,7 @@ int							leave(t_error error, t_fra *fra);
 /*
 **	The mandelbrot model.
 */
-void						mandelbrot(t_fra *fra);
+void						*mandelbrot(t_fra *fra);
 
 /*
 **	Puts a pixel into the mlx image.

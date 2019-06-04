@@ -6,7 +6,7 @@
 #    By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 14:17:52 by rle-ru            #+#    #+#              #
-#    Updated: 2019/06/04 11:08:43 by rle-ru           ###   ########.fr        #
+#    Updated: 2019/06/04 11:26:19 by rle-ru           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ LIBFILES			:=	$(foreach LIB, $(LIBS), $(LIB)/$(notdir $(LIB)).a)
 
 CC					=	gcc
 
-CFLAGS				+=	-Wall -Werror -Wextra -flto -O2
+CFLAGS				+=	-Wall -Werror -Wextra -fsanitize="address" -g
 
 INCLUDES			:=	$(addprefix -I ,$(INCDIR))	
 

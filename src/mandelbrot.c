@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 08:00:19 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 11:09:49 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 11:30:08 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,24 @@ static int	mandelbrot_calc(t_data *data)
 	return (i);
 }
 
-void		mandelbrot(t_fra *fra)
+void		*mandelbrot(t_fra *fra)
 {
 	int		i;
-	t_data	data;
 
-	data.y = 0;
-	data.iter = 100;
-	while (data.y < W_HEIGHT)
+	fra->data.y = fra->data.miny;
+	fra->data.iter = 100;
+	while (fra->data.y < fra->data.maxy)
 	{
-		data.x = 0;
-		while (data.x < W_WIDTH)
+		fra->data.x = 0;
+		while (fra->data.x < W_WIDTH)
 		{
-			data.c = ((data.x - (double)W_WIDTH / 2.) * 0.01) + I * ((data.y - (double)W_HEIGHT / 2.) * 0.01);
-			i = mandelbrot_calc(&data);
-			if (i < data.iter)
-				put_pixel(fra->canvas.img.img, &data, 0xFF);
-			++data.x;
+			fra->data.c = ((fra->data.x - (double)W_WIDTH / 2.) * 0.01) + I * ((fra->data.y - (double)W_HEIGHT / 2.) * 0.01);
+			i = mandelbrot_calc(&fra->data);
+			if (i < fra->data.iter)
+				put_pixel(fra->canvas.img.img, &fra->data, 0xFF);
+			++fra->data.x;
 		}
-		++data.y;
+		++fra->data.y;
 	}
+	return (NULL);
 }
