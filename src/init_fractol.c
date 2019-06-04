@@ -6,14 +6,13 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 06:14:15 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 20:18:12 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 11:09:04 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "mlx.h"
 #include "stdlib.h"
-// #include "libft.h"
 
 t_error			init_fractol(t_fra *fra)
 {

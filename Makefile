@@ -6,7 +6,7 @@
 #    By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 14:17:52 by rle-ru            #+#    #+#              #
-#    Updated: 2019/06/03 20:05:24 by rle-ru           ###   ########.fr        #
+#    Updated: 2019/06/04 11:08:43 by rle-ru           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS_RAW			:=	\
 						key_hook.c							\
 						draw.c								\
 						leave.c								\
+						put_pixel.c							\
 						mandelbrot.c						\
 
 # Directories

@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 20:14:39 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 11:06:33 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 # define W_WIDTH 500
 # define W_HEIGHT 500
 # define MAX_FRACTALS 1
+# define MAX_THREADS 4
 # include <math.h>
+# include <pthread.h>
 
 typedef double _Complex		t_complex;
+typedef pthread_t			t_pthread;
 
 typedef enum				e_fractals
 {
@@ -62,20 +65,20 @@ typedef struct				s_model
 	char					name[15];
 }							t_model;
 
+typedef struct				s_data
+{
+	int						x;
+	int						y;
+	int						iter;
+	t_complex				c;
+}							t_data;
+
 typedef struct				e_fra
 {
 	t_canvas				canvas;
 	t_model					fractal[MAX_FRACTALS];
 	t_fractals				curr_fractal;
 }							t_fra;
-
-typedef struct				s_man
-{
-	int						x;
-	int						y;
-	int						iter;
-	t_complex				c;
-}							t_man;
 
 /*
 **	Allocates memory according to needs, starts the MLX loop.
@@ -113,5 +116,10 @@ int							leave(t_error error, t_fra *fra);
 **	The mandelbrot model.
 */
 void						mandelbrot(t_fra *fra);
+
+/*
+**	Puts a pixel into the mlx image.
+*/
+void						put_pixel(int *img, t_data *data, int color);
 
 #endif

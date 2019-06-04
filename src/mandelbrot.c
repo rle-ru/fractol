@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 08:00:19 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/03 19:35:13 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 11:09:49 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,39 @@
 
 #include <complex.h>//
 #include "libft.h"////
-static int	mandelbrot_calc(t_fra *fra, t_man *man)
+static int	mandelbrot_calc(t_data *data)
 {
 	t_complex	z;
 	int			i;
 
-	(void)fra;
 	z = 0;
 	i = 0;
-	while (i < man->iter && cabs(z) <= 2)
+	while (i < data->iter && cabs(z) <= 2)
 	{
-		z = z * z + man->c;
+		z = z * z + data->c;
 		++i;
 	}
 	return (i);
 }
 
-void		put_pixel(t_fra *fra, t_man *man)
-{
-	fra->canvas.img.img[man->y * W_WIDTH + man->x] = 0xFF;
-}
-
-
 void		mandelbrot(t_fra *fra)
 {
-	t_man	man;
 	int		i;
+	t_data	data;
 
-	man.y = 0;
-	man.iter = 100;
-	while (man.y < W_HEIGHT)
+	data.y = 0;
+	data.iter = 100;
+	while (data.y < W_HEIGHT)
 	{
-		man.x = 0;
-		while (man.x < W_WIDTH)
+		data.x = 0;
+		while (data.x < W_WIDTH)
 		{
-			man.c = ((man.x - (double)W_WIDTH / 2.) * 0.01) + I * ((man.y - (double)W_HEIGHT / 2.) * 0.01);
-			i = mandelbrot_calc(fra, &man);
-			if (i < man.iter)
-				put_pixel(fra, &man);
-			++man.x;
+			data.c = ((data.x - (double)W_WIDTH / 2.) * 0.01) + I * ((data.y - (double)W_HEIGHT / 2.) * 0.01);
+			i = mandelbrot_calc(&data);
+			if (i < data.iter)
+				put_pixel(fra->canvas.img.img, &data, 0xFF);
+			++data.x;
 		}
-		++man.y;
+		++data.y;
 	}
 }

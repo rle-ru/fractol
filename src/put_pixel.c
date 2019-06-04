@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_arguments.c                                  :+:      :+:    :+:   */
+/*   put_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/03 19:59:56 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 09:08:26 by rle-ru           ###   ########.fr       */
+/*   Created: 2019/06/04 10:06:54 by rle-ru            #+#    #+#             */
+/*   Updated: 2019/06/04 11:06:19 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_error		parse_arguments(t_fra *fra, int ac, char **av)
+void		put_pixel(int *img, t_data *data, int color)
 {
-	(void)fra;//
-	(void)av;//
-	if (ac == 1)
-		return (usage);
-	return (ok);
+	img[data->y * W_WIDTH + data->x] = color;
 }
