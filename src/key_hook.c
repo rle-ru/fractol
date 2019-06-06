@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:30:53 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 20:45:07 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/04 21:20:42 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		key_hook(int key, t_fra *fra)
 		ft_bzero(&fra->data, sizeof(t_data));
 		fra->data.zoom = 0.01;
 		fra->data.max_iter = 100;
-		fra->data.julia = 0.274 - I * 0.008;
+	fra->data.julia = -0.74543 + I * 0.11301;
 	}
 	return (0);
 }
