@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 12:40:09 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/07 17:09:08 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/07 17:10:30 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int		mouse_hook(int key, int x, int y, t_fra *fra)
 		fra->data.x1 = (fra->data.x1 + x - W_WIDTH * 0.5) * 0.9;
 		fra->data.y1 = (fra->data.y1 + y - W_HEIGHT * 0.5) * 0.9;
 		fra->data.zoom *= 0.9;
-		// fra->data.zoom *= 0.9;
 	}
 	else if (key == M_SCROLL_DOWN)
 	{

@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/07 17:07:46 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/07 17:11:05 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,15 @@ void						*burning_ship(t_fra *fra);
 void						put_pixel(int *img, t_data *data, int color);
 
 /*
-**	Simple color set, black and white.
+**	Simple color set, black and white with gradient.
 */
 int							set_0(t_data *data);
 
 int							set_1(t_data *data);
 
+/*
+**	Simple color set, black and white.
+*/
 int							set_2(void);
+
 #endif
