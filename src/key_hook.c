@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:30:53 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 21:20:42 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/07 15:52:27 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@
 #include <complex.h>
 
 #include <stdio.h>//
+
+int		key_unhook(int key, t_fra *fra)
+{
+	fra->keys[key] = false;
+	return (0);
+}
+
 int		key_hook(int key, t_fra *fra)
 {
+	fra->keys[key] = true;
 	if (key == K_ESC)
 		leave(ok, fra);
-	if (key == K_RIGHT || key == K_LEFT)
-		fra->data.x1 += key == K_RIGHT ? 10 : -10;
-	if (key == K_DOWN || key == K_UP)
-		fra->data.y1 += key == K_DOWN ? 10 : -10;
-	if (key == K_Q || key == K_E)
-		fra->data.max_iter += key == K_Q ? 1 : -1;
 	if (key == K_OSQUARE_BRA || key == K_CSQUARE_BRA)
 	{
 		fra->curr_color += key == K_OSQUARE_BRA ? -1 : 1;
@@ -44,7 +46,7 @@ int		key_hook(int key, t_fra *fra)
 		ft_bzero(&fra->data, sizeof(t_data));
 		fra->data.zoom = 0.01;
 		fra->data.max_iter = 100;
-	fra->data.julia = -0.74543 + I * 0.11301;
+		fra->data.julia = -0.74543 + I * 0.11301;
 	}
 	return (0);
 }

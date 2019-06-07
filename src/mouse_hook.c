@@ -6,38 +6,43 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 12:40:09 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 20:35:00 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/07 17:02:12 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "keys.h"
 #include "math.h"
+#include "complex.h"
 
-#include <complex.h>//
+int		mouse_unhook(int key, int x, int y, t_fra *fra)
+{
+	(void)x;
+	(void)y;
+	fra->mkeys[key] = false;
+	return (0);
+}
+int		mouse_notify(int x, int y, t_fra *fra)
+{
+	fra->mx = x;
+	fra->my = y;
+	return (0);
+}
+
 int		mouse_hook(int key, int x, int y, t_fra *fra)
 {
+	fra->mkeys[key] = true;
 	if (key == M_SCROLL_UP)
 	{
-		fra->data.x1 = round(((double)(((double)W_WIDTH / 2.0) + fra->data.x1) - (double)x) * 0.9);
-		fra->data.y1 = round(((double)(((double)W_HEIGHT / 2.0) + fra->data.y1) - (double)y) * 0.9);
-		// fra->data.x1 = (x / fra->data.zoom + fra->data.x1) - (x / fra->data.zoom * 0.9);
-		// fra->data.y1 = (x / fra->data.zoom + fra->data.y1) - (y / fra->data.zoom * 0.9);
+		fra->data.x1 = (fra->data.x1 + x - W_WIDTH * 0.5) * 0.9;
+		fra->data.y1 = (fra->data.y1 + y - W_HEIGHT * 0.5) * 0.9;
 		fra->data.zoom *= 0.9;
 	}
 	else if (key == M_SCROLL_DOWN)
 	{
-		fra->data.x1 = round(((double)(((double)W_WIDTH / 2.0) + fra->data.x1) - (double)x) * 1.1);
-		fra->data.y1 = round(((double)(((double)W_HEIGHT / 2.0) + fra->data.y1) - (double)y) * 1.1);
-		// fra->data.x1 += (x / fra->data.zoom + fra->data.x1) - (y / fra->data.zoom * 1.1);
-		// fra->data.y1 += (y / fra->data.zoom + fra->data.y1) - (y / fra->data.zoom * 1.1);
+		fra->data.x1 = (fra->data.x1 + x - W_WIDTH * 0.5) * 1.1;
+		fra->data.y1 = (fra->data.y1 + y - W_HEIGHT * 0.5) * 1.1;
 		fra->data.zoom *= 1.1;
 	}
-	if (key == M_LEFT)
-	{
-		fra->data.julia = ((double)x * -0.002205) + (I * (double)y * 0.00081);
-	}
-	(void)x;//
-	(void)y;//
 	return (0);
 }

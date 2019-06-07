@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/06 22:04:10 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/07 17:03:28 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,34 @@
 #include "fractol.h"
 #include "libft.h"
 #include <pthread.h>
+#include "keys.h"
+#include <complex.h>
 
 static void	print_text(t_fra *fra)
 {
 	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, 0, 0, 0xFFFFFF, fra->fractal[fra->curr_fractal].name);
+}
+
+static void	update_mouse(t_fra *fra)
+{
+	if (fra->keys[K_J])
+		fra->data.julia = ((double)fra->mx * -0.002205) + (I * (double)fra->my * 0.00081);
+}
+
+static void	update_hooks(t_fra *fra)
+{
+	if (fra->keys[K_RIGHT] == true)
+		fra->data.x1 += 10;
+	if (fra->keys[K_LEFT] == true)
+		fra->data.x1 -= 10;
+	if (fra->keys[K_UP] == true)
+		fra->data.y1 -= 10;
+	if (fra->keys[K_DOWN] == true)
+		fra->data.y1 += 10;
+	if (fra->keys[K_E] == true)
+		fra->data.max_iter -= 1;
+	if (fra->keys[K_Q] == true)
+		fra->data.max_iter += 1;
 }
 
 int			draw(t_fra *fra)
@@ -26,6 +50,8 @@ int			draw(t_fra *fra)
 	t_fra		cpy[MAX_THREADS];
 	int			i;
 
+	update_hooks(fra);
+	update_mouse(fra);
 	if (fra->data.max_iter < 3)
 		fra->data.max_iter = 3;
 	ft_bzero(fra->canvas.img.img, sizeof(int) * W_WIDTH * W_HEIGHT);

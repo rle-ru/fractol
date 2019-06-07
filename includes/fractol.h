@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/04 19:13:54 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/07 17:07:46 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # define W_WIDTH 500
 # define W_HEIGHT 500
 # define MAX_FRACTALS 3
-# define MAX_COLORS 2
-# define MAX_THREADS 8
+# define MAX_COLORS 3
+# define MAX_THREADS 16
 # include <math.h>
 # include <pthread.h>
 
@@ -27,7 +27,7 @@ typedef enum				e_fractals
 {
 	man,
 	jul,
-	new
+	ship
 }							t_fractals;
 
 typedef enum				e_bool
@@ -95,6 +95,10 @@ typedef struct				e_fra
 	t_cmodel				colors[MAX_COLORS];
 	int						curr_color;
 	t_data					data;
+	t_bool					keys[300];
+	t_bool					mkeys[10];
+	int						mx;
+	int						my;
 }							t_fra;
 
 /*
@@ -119,9 +123,24 @@ t_error						parse_arguments(t_fra *fra, int ac, char **av);
 int							key_hook(int key, t_fra *fra);
 
 /*
+**	Keyboards inputs managment.
+*/
+int							key_unhook(int key, t_fra *fra);
+
+/*
 **	Mouse inputs managment.
 */
 int							mouse_hook(int key, int x, int y, t_fra *fra);
+
+/*
+**	Mouse inputs managment.
+*/
+int							mouse_unhook(int key, int x, int y, t_fra *fra);
+
+/*
+**	Mouse inputs managment.
+*/
+int							mouse_notify(int x, int y, t_fra *fra);
 
 /*
 **	The main drawing function. It is called on every mlx_loop.
@@ -145,9 +164,9 @@ void						*mandelbrot(t_fra *fra);
 void						*julia(t_fra *fra);
 
 /*
-**	The newton set.
+**	The burning ship set.
 */
-void						*newton(t_fra *fra);
+void						*burning_ship(t_fra *fra);
 
 /*
 **	Puts a pixel into the mlx image.
@@ -161,4 +180,5 @@ int							set_0(t_data *data);
 
 int							set_1(t_data *data);
 
+int							set_2(void);
 #endif
