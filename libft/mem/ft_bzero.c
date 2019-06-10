@@ -6,11 +6,12 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:21:10 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/05/28 06:27:26 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 13:01:21 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdint.h>
+#include <string.h>
 
 void	ft_bzero(void *s, size_t n)
 {

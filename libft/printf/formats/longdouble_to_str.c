@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 12:43:52 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/05/28 06:03:51 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 15:22:10 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char		*longdouble_to_str(va_list *args, t_info *info)
 	{
 		result = ft_strjoin_free(result, ".", LEFT);
 		flt_tmp = ft_ltoa(
-			(long)(floating_part * ft_pow(10l, info->precision)));
+				(long)(floating_part * ft_pow(10l, info->precision)));
 		if ((int)ft_strlen(flt_tmp) < info->precision)
 			result = prefix_zeros(result, info->precision - ft_strlen(flt_tmp));
 		result = ft_strjoin_free(result, flt_tmp, LEFT + RIGHT);

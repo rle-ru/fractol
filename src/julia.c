@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 08:00:19 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 11:32:54 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 15:18:59 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			*julia(t_fra *fra)
 		{
 			fra->data.c = ((fra->data.x1 + fra->data.x - (double)W_WIDTH / 2.)
 					* fra->data.zoom) + I * ((fra->data.y1 + fra->data.y
-					- (double)W_HEIGHT / 2.) * fra->data.zoom);
+						- (double)W_HEIGHT / 2.) * fra->data.zoom);
 			julia_calc(&fra->data);
 			if (fra->data.iter < fra->data.max_iter)
 				put_pixel(fra->canvas.img.img, &fra->data,
