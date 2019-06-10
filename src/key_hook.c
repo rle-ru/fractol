@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:30:53 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 11:22:17 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 11:33:07 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include "keys.h"
 #include "libft.h"
 #include <complex.h>
-
-#include <stdio.h>//
 
 int		key_unhook(int key, t_fra *fra)
 {

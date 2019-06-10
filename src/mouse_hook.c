@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 12:40:09 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/07 17:10:30 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 11:32:22 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		mouse_unhook(int key, int x, int y, t_fra *fra)
 	fra->mkeys[key] = false;
 	return (0);
 }
+
 int		mouse_notify(int x, int y, t_fra *fra)
 {
 	fra->mx = x;

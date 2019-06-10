@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 11:16:08 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 11:55:34 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <math.h>
 # include <pthread.h>
 
-typedef double _Complex		t_complex;
+typedef double	_Complex	t_complex;
 typedef pthread_t			t_pthread;
 
 typedef enum				e_fractals
@@ -89,7 +89,7 @@ typedef struct				s_data
 	int						bulbs;
 }							t_data;
 
-typedef struct				e_fra
+typedef struct				s_fra
 {
 	t_canvas				canvas;
 	t_model					fractal[MAX_FRACTALS];
@@ -191,5 +191,9 @@ int							set_1(t_data *data);
 **	Simple color set, black and white.
 */
 int							set_2(void);
+
+double						get_gradient(double val, double first, double second);
+
+int							get_color(int c1, int c2, double p);
 
 #endif
