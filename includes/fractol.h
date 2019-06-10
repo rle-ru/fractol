@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/07 20:28:21 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 11:16:08 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct				s_data
 	int						maxy;
 	double					zoom;
 	double					julia;
+	int						bulbs;
 }							t_data;
 
 typedef struct				e_fra

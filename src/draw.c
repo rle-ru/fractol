@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/07 17:03:28 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 11:22:16 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,20 @@ static void	update_hooks(t_fra *fra)
 		fra->data.max_iter += 1;
 }
 
+static void	min_max(t_fra *fra)
+{
+	if (fra->data.max_iter < 3)
+		fra->data.max_iter = 3;
+	if (fra->data.bulbs < 1)
+		fra->data.bulbs = 1;
+	if (fra->data.bulbs > 5)
+		fra->data.bulbs = 5;
+	if (fra->curr_fractal >= MAX_FRACTALS)
+		fra->curr_fractal = 0;
+	if (fra->curr_fractal < 0)
+		fra->curr_fractal = MAX_FRACTALS - 1;
+}
+
 int			draw(t_fra *fra)
 {
 	t_pthread	threads[MAX_THREADS];
@@ -52,8 +66,7 @@ int			draw(t_fra *fra)
 
 	update_hooks(fra);
 	update_mouse(fra);
-	if (fra->data.max_iter < 3)
-		fra->data.max_iter = 3;
+	min_max(fra);
 	ft_bzero(fra->canvas.img.img, sizeof(int) * W_WIDTH * W_HEIGHT);
 	i = 0;
 	while (i < MAX_THREADS)

@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:30:53 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/07 15:52:27 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 11:22:17 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,12 @@ int		key_hook(int key, t_fra *fra)
 	if (key == K_A || key == K_D)
 	{
 		fra->curr_fractal += key == K_A ? -1 : 1;
-		if (fra->curr_fractal >= MAX_FRACTALS)
-			fra->curr_fractal = 0;
-		if (fra->curr_fractal < 0)
-			fra->curr_fractal = MAX_FRACTALS - 1;
 		ft_bzero(&fra->data, sizeof(t_data));
 		fra->data.zoom = 0.01;
 		fra->data.max_iter = 100;
 		fra->data.julia = -0.74543 + I * 0.11301;
 	}
+	if (key == K_PLUS || key == K_MINUS)
+		fra->data.bulbs += key == K_PLUS ? 1 : -1;
 	return (0);
 }
