@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 11:55:34 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/10 15:25:05 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,8 @@ int							set_1(t_data *data);
 */
 int							set_2(void);
 
-double						get_gradient(double val, double first, double second);
+double						get_gradient(double val, double first,
+		double second);
 
 int							get_color(int c1, int c2, double p);
 
