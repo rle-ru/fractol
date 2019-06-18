@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 15:25:05 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/15 16:41:10 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define MAX_FRACTALS 4
 # define MAX_COLORS 3
 # define MAX_THREADS 16
+# define BASE_ITER 4096
 # include <math.h>
 # include <pthread.h>
 

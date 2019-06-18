@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 17:06:55 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 11:53:28 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/13 10:50:58 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int						get_color(int c1, int c2, double p)
 
 	if (c1 == c2)
 		return (c1);
-	r = apply_gradient((c1 >> 16) & 0xFF, (c2 >> 16) & 0xFF, p);
-	g = apply_gradient((c1 >> 8) & 0xFF, (c2 >> 8) & 0xFF, p);
+	r = apply_gradient((c1 & 0xFF0000) >> 16, (c2 & 0xFF0000) >> 16, p);
+	g = apply_gradient((c1 & 0xFF00) >> 8, (c2 & 0xFF00) >> 8, p);
 	b = apply_gradient(c1 & 0xFF, c2 & 0xFF, p);
 	return ((unsigned char)r << 16 | (unsigned char)g << 8 | (unsigned char)b);
 }

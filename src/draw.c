@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 15:19:36 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/13 11:00:50 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static void		update_hooks(t_fra *fra)
 
 static void		min_max(t_fra *fra)
 {
-	if (fra->data.max_iter < 3)
-		fra->data.max_iter = 3;
+	if (fra->data.max_iter < 1)
+		fra->data.max_iter = 1;
 	if (fra->data.bulbs < 1)
 		fra->data.bulbs = 1;
 	if (fra->data.bulbs > 5)
@@ -69,6 +69,7 @@ int				draw(t_fra *fra)
 	update_hooks(fra);
 	update_mouse(fra);
 	min_max(fra);
+	mlx_clear_window(fra->canvas.mlx_ptr, fra->canvas.window);
 	ft_bzero(fra->canvas.img.img, sizeof(int) * (unsigned long long)W_WIDTH
 		* (unsigned long long)W_HEIGHT);
 	i = 0;
