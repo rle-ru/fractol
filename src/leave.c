@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 06:18:10 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 11:33:19 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/18 14:05:16 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_usage(t_fra *fra)
 	ft_putstr("Usage : ./fractol");
 	while (i < MAX_FRACTALS)
 	{
-		ft_putchar(' ');
+		ft_putstr(", ");
 		ft_putstr(fra->fractal[i].name);
 		++i;
 	}

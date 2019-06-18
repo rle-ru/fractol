@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 15:19:36 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/18 17:40:52 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void		print_text(t_fra *fra)
 static void		update_mouse(t_fra *fra)
 {
 	if (fra->keys[K_J])
-		fra->data.julia = ((double)fra->mx * -0.002205)
-			+ (I * (double)fra->my * 0.00081);
+		fra->data.julia = (double)(fra->mx - W_WIDTH / 2) / W_WIDTH
+			+ (double)(fra->my - W_HEIGHT / 2) / W_HEIGHT * I;
 }
 
 static void		update_hooks(t_fra *fra)
@@ -58,6 +58,12 @@ static void		min_max(t_fra *fra)
 		fra->curr_fractal = 0;
 	if (fra->curr_fractal < 0)
 		fra->curr_fractal = MAX_FRACTALS - 1;
+	fra->data.disco += 0.001;
+	fra->data.sdisco = (sin(fra->data.disco) + 1) * 0.5;
+	fra->data.sdisco = (sin(fra->data.disco) + 1) * 0.5;
+	fra->data.sdisco2 = (sin(fra->data.disco * 2) + 1) * 0.5;
+	fra->data.sdisco5 = (sin(fra->data.disco * 5) + 1) * 0.5;
+	fra->data.sdisco10 = (sin(fra->data.disco * 10) + 1) * 0.5;
 }
 
 int				draw(t_fra *fra)

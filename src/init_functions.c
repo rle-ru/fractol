@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 20:03:11 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/07 20:29:53 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/18 16:43:49 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void		init_functions(t_fra *fra)
 	fra->colors[0].f = &set_0;
 	fra->colors[1].f = &set_1;
 	fra->colors[2].f = &set_2;
+	fra->colors[3].f = &set_3;
+	fra->colors[4].f = &set_4;
 }

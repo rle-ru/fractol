@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/10 15:25:05 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/18 17:19:41 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 # define W_WIDTH 500
 # define W_HEIGHT 500
 # define MAX_FRACTALS 4
-# define MAX_COLORS 3
+# define MAX_COLORS 5
 # define MAX_THREADS 16
 # include <math.h>
 # include <pthread.h>
 
-typedef double	_Complex	t_complex;
+typedef _Complex double		t_complex;
 typedef pthread_t			t_pthread;
 
 typedef enum				e_fractals
@@ -85,8 +85,14 @@ typedef struct				s_data
 	int						miny;
 	int						maxy;
 	double					zoom;
-	double					julia;
+	t_complex				julia;
 	int						bulbs;
+	double					disco;
+	double					sdisco;
+	double					sdisco2;
+	double					sdisco5;
+	double					sdisco10;
+	t_bool					discob;
 }							t_data;
 
 typedef struct				s_fra
@@ -191,6 +197,10 @@ int							set_1(t_data *data);
 **	Simple color set, black and white.
 */
 int							set_2(void);
+
+int							set_3(t_data *data);
+
+int							set_4(t_data *data);
 
 double						get_gradient(double val, double first,
 		double second);
