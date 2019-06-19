@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/18 17:40:52 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/19 11:34:48 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,15 @@ static void		min_max(t_fra *fra)
 		fra->curr_fractal = 0;
 	if (fra->curr_fractal < 0)
 		fra->curr_fractal = MAX_FRACTALS - 1;
-	fra->data.disco += 0.001;
-	fra->data.sdisco = (sin(fra->data.disco) + 1) * 0.5;
-	fra->data.sdisco = (sin(fra->data.disco) + 1) * 0.5;
-	fra->data.sdisco2 = (sin(fra->data.disco * 2) + 1) * 0.5;
-	fra->data.sdisco5 = (sin(fra->data.disco * 5) + 1) * 0.5;
-	fra->data.sdisco10 = (sin(fra->data.disco * 10) + 1) * 0.5;
+	if (fra->data.discob)
+	{
+		fra->data.disco += 0.001;
+		fra->data.sdisco = (sin(fra->data.disco) + 1) * 0.5;
+		fra->data.sdisco = (sin(fra->data.disco) + 1) * 0.5;
+		fra->data.sdisco2 = (sin(fra->data.disco * 2) + 1) * 0.5;
+		fra->data.sdisco5 = (sin(fra->data.disco * 5) + 1) * 0.5;
+		fra->data.sdisco10 = (sin(fra->data.disco * 10) + 1) * 0.5;
+	}
 }
 
 int				draw(t_fra *fra)

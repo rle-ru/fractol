@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/18 17:19:41 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/19 11:50:24 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,13 @@ typedef struct				s_data
 {
 	int						x;
 	int						y;
-	int						x1;
-	int						y1;
+	double					x1;
+	double					y1;
 	int						iter;
 	int						max_iter;
 	t_complex				c;
-	int						miny;
-	int						maxy;
+	double					miny;
+	double					maxy;
 	double					zoom;
 	t_complex				julia;
 	int						bulbs;
