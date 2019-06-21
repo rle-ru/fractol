@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/19 11:50:24 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 12:50:44 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 # define W_WIDTH 500
 # define W_HEIGHT 500
-# define MAX_FRACTALS 4
+# define MAX_FRACTALS 6
 # define MAX_COLORS 5
 # define MAX_THREADS 16
 # include <math.h>
@@ -28,7 +28,9 @@ typedef enum				e_fractals
 	man,
 	jul,
 	ship,
-	sier
+	sier,
+	lei,
+	fei
 }							t_fractals;
 
 typedef enum				e_bool
@@ -180,6 +182,10 @@ void						*burning_ship(t_fra *fra);
 **	The Sierpinski's carpet.
 */
 void						*sierpinski(t_fra *fra);
+
+void						*leif(t_fra *fra);
+
+void						*feigen(t_fra *fra);
 
 /*
 **	Puts a pixel into the mlx image.
