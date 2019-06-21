@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 06:18:10 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/18 14:05:16 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 16:36:08 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,9 @@ int			leave(t_error error, t_fra *fra)
 	free_ptrs(fra);
 	exit(0);
 	return (0);
+}
+
+int			cross_leave(t_fra *fra)
+{
+	return (leave(ok, fra));
 }

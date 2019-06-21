@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/21 14:14:33 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 16:36:24 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,8 @@ int							draw(t_fra *fra);
 **	error messages if needed.
 */
 int							leave(t_error error, t_fra *fra);
+
+int							cross_leave(t_fra *fra);
 
 /*
 **	The mandelbrot set.
