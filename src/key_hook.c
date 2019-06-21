@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:30:53 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/18 17:25:07 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 14:39:39 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		key_hook(int key, t_fra *fra)
 	}
 	if (key == K_PLUS || key == K_MINUS)
 		fra->data.bulbs += key == K_PLUS ? 1 : -1;
-	if (key == K_T)
-		fra->data.discob ^= 1;
+	fra->data.discob ^= key == K_T;
+	fra->hud ^= key == K_ENTER;
 	return (0);
 }

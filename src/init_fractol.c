@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 06:14:15 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/18 15:17:25 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 14:14:45 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_error			init_fractol(t_fra *fra)
 	fra->data.julia = -0.74543 + I * 0.11301;
 	fra->data.zoom = 0.01;
 	fra->data.max_iter = 100;
+	fra->hud = true;
 	mlx_hook(fra->canvas.window, 2, 1, key_hook, fra);
 	mlx_hook(fra->canvas.window, 3, 1, key_unhook, fra);
 	mlx_hook(fra->canvas.window, 4, 1, mouse_hook, fra);

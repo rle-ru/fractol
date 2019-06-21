@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 07:16:05 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/19 11:34:48 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 14:56:31 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,35 @@
 #include <pthread.h>
 #include "keys.h"
 #include <complex.h>
+#include <stdlib.h>
 
 static void		print_text(t_fra *fra)
 {
-	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, 0, 0, 0xFFFFFF,
+	char	str[10];
+
+	ft_strcpy(str, "Color:  ");
+	str[8] = fra->curr_color + '0';
+	if (fra->hud == false)
+		return ;
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, 0, 0, 0xF0F0F0,
 		fra->fractal[fra->curr_fractal].name);
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, 0, 16, 0xF0F0F0,
+		str);
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, W_WIDTH - 250, 0,
+		0xF0F0F0, "Enter: HUD ON/OFF");
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, W_WIDTH - 250, 16,
+		0xF0F0F0, "A/D: Change fractal");
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, W_WIDTH - 250, 32,
+		0xF0F0F0, "Arrows: Move");
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, W_WIDTH - 250, 48,
+		0xF0F0F0, "Q/E: Inc/dec limit");
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, W_WIDTH - 250, 64,
+		0xF0F0F0, "[/]: Change color set");
+	mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window, W_WIDTH - 250, 80,
+		0xF0F0F0, "J + Mouse: Julia's factor");
+	if (fra->curr_color > 2)
+		mlx_string_put(fra->canvas.mlx_ptr, fra->canvas.window,
+			W_WIDTH - 250, 96, 0xF0F0F0, "T: Toggle color vibe");
 }
 
 static void		update_mouse(t_fra *fra)

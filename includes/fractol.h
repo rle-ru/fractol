@@ -6,14 +6,14 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:38:14 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/21 12:50:44 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 14:14:33 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# define W_WIDTH 500
-# define W_HEIGHT 500
+# define W_WIDTH 1000
+# define W_HEIGHT 1000
 # define MAX_FRACTALS 6
 # define MAX_COLORS 5
 # define MAX_THREADS 16
@@ -109,6 +109,7 @@ typedef struct				s_fra
 	t_bool					mkeys[10];
 	int						mx;
 	int						my;
+	t_bool					hud;
 }							t_fra;
 
 /*

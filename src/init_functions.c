@@ -6,7 +6,7 @@
 /*   By: rle-ru <rle-ru@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 20:03:11 by rle-ru            #+#    #+#             */
-/*   Updated: 2019/06/21 12:50:47 by rle-ru           ###   ########.fr       */
+/*   Updated: 2019/06/21 13:04:54 by rle-ru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void		init_functions(t_fra *fra)
 	fra->fractal[3].f = &sierpinski;
 	fra->fractal[3].index = sier;
 	ft_strcpy(fra->fractal[3].name, "sierpinski's carpet");
-	fra->fractal[3].f = &leif;
-	fra->fractal[3].index = lei;
-	ft_strcpy(fra->fractal[3].name, "leif");
-	fra->fractal[3].f = &feigen;
-	fra->fractal[3].index = fei;
-	ft_strcpy(fra->fractal[3].name, "feigen");
+	fra->fractal[4].f = &leif;
+	fra->fractal[4].index = lei;
+	ft_strcpy(fra->fractal[4].name, "leif");
+	fra->fractal[5].f = &feigen;
+	fra->fractal[5].index = fei;
+	ft_strcpy(fra->fractal[5].name, "feigen");
 	fra->colors[0].f = &set_0;
 	fra->colors[1].f = &set_1;
 	fra->colors[2].f = &set_2;
